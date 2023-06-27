@@ -4,8 +4,8 @@
 #include <WiFiManager.h>
 
 
-#define WIFI_SSID             "IoT Kit"
-#define WIFI_PASSWORD         "iotkit"
+#define WIFI_SSID             "makesense_roboshop" //change to your personal Access Point
+#define WIFI_PASSWORD         "makesense" 
 #define MQTT_HOST             "broker.hivemq.com"
 #define MQTT_PREFIX_TOPIC     "iotkit2010335954/mqtt" //ubah topic mqtt anda
 #define MQTT_PUBLISH_TOPIC    "/data"
@@ -15,6 +15,8 @@
 #define GAS_PIN 32
 #define LED_RED 23
 #define LED_GREEN 22
+
+#treshold 500
 
 
 
@@ -43,7 +45,7 @@ void connectToWiFi() {
   WiFiManager wm; 
   wm.setConfigPortalTimeout(timeout); 
 
-  if (!wm.startConfigPortal(WIFI_SSID ,WIFI_PASSWORD)) {
+  if (!wm.startConfigPortal(WIFI_SSID)) {
       Serial.println("failed to connect and hit timeout");
       delay(3000);
       //reset and try again, or maybe put it to deep sleep
@@ -60,18 +62,7 @@ void messageReceived(String &topic, String &payload) {
   Serial.println("Incoming Status: " + payload);
   Serial.println();
 
-  if (payload == "ON_RED") {
-    digitalWrite(LED_RED, HIGH);
-  } 
-  else if (payload == "OFF_RED") {
-    digitalWrite(LED_RED, LOW);
-  }
-  else if (payload == "ON_GREEN") {
-    digitalWrite(LED_GREEN, HIGH);
-  }
-  else if (payload == "OFF_GREEN") {
-    digitalWrite(LED_GREEN, LOW);
-  }
+
 }
 
 void connectToMqttBroker(){
@@ -143,20 +134,22 @@ void loop() {
     //gas value
     int gas_value= analogRead(GAS_PIN);
     //gas_value = map(gas_value,550,0,0,100);
-    Serial.print("Gas Vaalue : ");
+    Serial.print("Gas Value : ");
     Serial.print(gas_value);
-    Serial.println("%");
+    
     
 
-    //receive via mqtt
+    //led trigger
 
-    if (millis() - lastMillis > 10000) {
-    lastMillis = millis();
-
-   
-    
-    mqtt.subscribe(String(MQTT_PREFIX_TOPIC) + String(MQTT_SUBSCRIBE_TOPIC));
+    if (gas_value < 500) {
+      digitalWrite(LED_RED,HIGH);
+      digitalWrite(LED_GREEN,LOW);    
   }
+  else
+    {
+      digitalWrite(LED_RED,LOW);
+      digitalWrite(LED_GREEN,HIGH);     
+    }
 
 
     
@@ -169,7 +162,7 @@ void loop() {
     lastMillis = millis();
 
     String dataInJson = "{";
-    dataInJson += "\"Gas Value\":" + String(gas_value);
+    dataInJson += "\"gasvalue\":" + String(gas_value);
     dataInJson += "}";
 
     Serial.println("Data to Publish: " + dataInJson);
