@@ -41,7 +41,7 @@ void connectToWiFi() {
   WiFiManager wm; 
   wm.setConfigPortalTimeout(timeout); 
 
-  if (!wm.startConfigPortal(WIFI_SSID ,WIFI_PASSWORD)) {
+  if (!wm.startConfigPortal(WIFI_SSID)) {
       Serial.println("failed to connect and hit timeout");
       delay(3000);
       //reset and try again, or maybe put it to deep sleep
@@ -141,7 +141,7 @@ void loop() {
     lastMillis = millis();
 
     String dataInJson = "{";
-    dataInJson += "\"Soil Moisture\":" + String(soil_value);
+    dataInJson += "\"soilmoisture\":" + String(soil_value);
     dataInJson += "}";
 
     Serial.println("Data to Publish: " + dataInJson);
