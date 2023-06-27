@@ -4,8 +4,8 @@
 #include <WiFiManager.h>
 
 
-#define WIFI_SSID             "IoT Kit"
-#define WIFI_PASSWORD         "iotkit"
+#define WIFI_SSID             "Makesense_roboshop"
+#define WIFI_PASSWORD         "makesense"
 #define MQTT_HOST             "broker.hivemq.com"
 #define MQTT_PREFIX_TOPIC     "iotkit2010335954/mqtt" //ubah topic mqtt anda
 #define MQTT_PUBLISH_TOPIC    "/data"
