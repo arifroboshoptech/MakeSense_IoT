@@ -16,7 +16,7 @@
 #define LED_RED 23
 #define LED_GREEN 22
 
-#treshold 500
+#define treshold 500
 
 
 
