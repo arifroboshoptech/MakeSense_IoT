@@ -8,11 +8,11 @@
 #include "BlynkEdgent.h"
 
 //pinout declaratiorn
-#define analogsensorpin 36
+#define analogsensorpin 36 //change to where analog sensor is connected
 #define led_red 23
 #define led_green 22
 
-#define treshold 500 //chage the treshold value according to your sensor
+#define treshold 500 //change the treshold value according to your sensor
 
 
 void setup()
