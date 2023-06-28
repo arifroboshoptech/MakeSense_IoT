@@ -4,10 +4,10 @@
 #include <WiFiManager.h>
 
 
-#define WIFI_SSID             "IoT Kit"
+#define WIFI_SSID             "MakeSense-Roboshop" //change to your personal Access Point
 #define WIFI_PASSWORD         "iotkit"
 #define MQTT_HOST             "broker.hivemq.com"
-#define MQTT_PREFIX_TOPIC     "iotkit2010335954/mqtt" //ubah topic mqtt anda
+#define MQTT_PREFIX_TOPIC     "iotkit2010335954/mqtt" //change to your personal mqtt prefix
 #define MQTT_PUBLISH_TOPIC    "/data"
 #define MQTT_SUBSCRIBE_TOPIC  "/control"
 
@@ -41,7 +41,7 @@ void connectToWiFi() {
   WiFiManager wm; 
   wm.setConfigPortalTimeout(timeout); 
 
-  if (!wm.startConfigPortal(WIFI_SSID ,WIFI_PASSWORD)) {
+  if (!wm.startConfigPortal(WIFI_SSID)) {
       Serial.println("failed to connect and hit timeout");
       delay(3000);
       //reset and try again, or maybe put it to deep sleep
