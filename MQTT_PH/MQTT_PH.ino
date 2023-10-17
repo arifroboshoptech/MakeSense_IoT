@@ -107,7 +107,7 @@ void setup() {
   EEPROM.begin(32);
   delay(2000);
   lcd.setCursor(0,0);
-  lcd.print(" IOT PH MONITOR ");
+  lcd.print(" IOT PH MONITOR "); //can change the lcd header name
 
   Serial.println("\nESP32 MQTT");
   //connectToWiFi();
