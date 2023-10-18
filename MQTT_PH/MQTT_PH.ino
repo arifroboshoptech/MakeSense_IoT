@@ -6,10 +6,10 @@
 #include "DFRobot_ESP_PH.h"
 #include <EEPROM.h>
 
-#define WIFI_SSID             "PSDC_Kit1" //Access point name
+#define WIFI_SSID             "PSDC_Kit1" //Access point name max 13 character
 #define WIFI_PASSWORD         "PSDC1234"
 #define MQTT_HOST             "broker.hivemq.com"
-#define MQTT_PREFIX_TOPIC     "PSDC/phkit01/mqtt"
+#define MQTT_PREFIX_TOPIC     "PSDC/phkit01/mqtt" //can chage topic prefix
 #define MQTT_PUBLISH_TOPIC    "/data"
 #define MQTT_SUBSCRIBE_TOPIC  "/control"
 
