@@ -42,9 +42,9 @@ void connectToWiFi() {
   Serial.print("Connecting to Wi-Fi");
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Connect to WiFi");
+  lcd.print("Connect to WiFi ");
   lcd.setCursor(0, 1);
-  lcd.print(WIFI_SSID);
+  lcd.print("AP:"+String(WIFI_SSID));
 
   WiFi.mode(WIFI_STA);
   //WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
@@ -107,7 +107,7 @@ void setup() {
   EEPROM.begin(32);
   delay(2000);
   lcd.setCursor(0,0);
-  lcd.print(" IOT PH MONITOR "); //can change the lcd header name
+  lcd.print(" IOT PH MONITOR ");
 
   Serial.println("\nESP32 MQTT");
   //connectToWiFi();
@@ -149,6 +149,8 @@ void loop() {
 
 
     //Display LCD
+    lcd.setCursor(0,0);
+    lcd.print(" IOT PH MONITOR ");
     lcd.setCursor(0,1);  
     lcd.print("PH:" + String(phValue)+" WiFi:" + wifi_status);
 
