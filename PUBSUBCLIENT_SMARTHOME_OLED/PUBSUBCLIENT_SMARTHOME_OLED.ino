@@ -74,7 +74,6 @@ void callback(char *topic, byte *payload, unsigned int length) {
   if (String(topic) == relayTopic) {
     if (data == "ON") {
       digitalWrite(RELAY, HIGH); // Turn on the relay
-      tone(BUZZER, 1000, 2000); // Turn on the buzzer for 2 seconds
     } else {
       digitalWrite(RELAY, LOW); // Turn off the relay
     }
@@ -154,9 +153,6 @@ void loop() {
     if (WiFi.status() == WL_CONNECTED) {
       display.println("Wi-Fi Connected");
       display.println("IP Address:");
-      digitalWrite(BUZZER, HIGH);
-      delay(2000);
-      digitalWrite(BUZZER, LOW);
       display.println(WiFi.localIP());
     } else {
       display.println("Wi-Fi Disconnected");
