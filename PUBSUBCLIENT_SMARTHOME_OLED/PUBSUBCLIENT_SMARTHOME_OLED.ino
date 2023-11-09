@@ -19,7 +19,7 @@ const char *password = "aqil1234";
 const char *mqttServer = "broker.hivemq.com";
 const char *topic = "Tempdata12";
 const char *relayTopic = "RelayHome1"; // New MQTT topic for relay control
-String relayTopic2 = "lights";
+const char *relayTopic2 = "lights";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
