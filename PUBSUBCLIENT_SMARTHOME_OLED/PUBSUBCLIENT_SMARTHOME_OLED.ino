@@ -19,6 +19,7 @@ const char *password = "aqil1234";
 const char *mqttServer = "broker.hivemq.com";
 const char *topic = "Tempdata12";
 const char *relayTopic = "RelayHome1"; // New MQTT topic for relay control
+String relayTopic2 = "lights";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -45,7 +46,7 @@ void reconnect() {
   while (!client.connected()) {
     if (client.connect("espClient")) {
       Serial.println("MQTT connected");
-      client.subscribe("lights");
+      client.subscribe(relayTopic2);
       client.subscribe(relayTopic); // Subscribe to the relay topic
       Serial.println("Topic Subscribed");
     } else {
