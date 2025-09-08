@@ -5,8 +5,8 @@
 
 #include <BlynkSimpleEsp32.h>
 
-#define wifi_username "your wifi username"
-#define wifi_password "your wifi password"
+#define wifi_username "insert your wifi username"
+#define wifi_password "insert your wifi password"
 
 //pinout declaratiorn
 #define analogsensorpin 32 //change to where analog sensor is connected
