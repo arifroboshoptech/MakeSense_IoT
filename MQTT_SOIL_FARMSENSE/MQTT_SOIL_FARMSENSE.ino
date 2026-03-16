@@ -1,5 +1,6 @@
 /**
- * FarmSense IoT - ESP32 Soil Moisture Sensor Node
+ *Version V1.0.1 
+ *FarmSense IoT - ESP32 Soil Moisture Sensor Node
  *
  * Reads analog soil moisture sensor on GPIO35 and publishes
  * readings to the web dashboard via MQTT.
