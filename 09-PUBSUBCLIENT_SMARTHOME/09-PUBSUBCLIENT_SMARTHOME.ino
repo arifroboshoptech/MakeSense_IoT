@@ -1,3 +1,24 @@
+/**
+ * Version 1.0.0
+ * MakeSense IoT - ESP32 PubSubClient Smart Home
+ *
+ * Reads a DHT11 temperature and humidity sensor and publishes
+ * the values to an MQTT broker. Subscribes to a "lights" topic
+ * to remotely control an LED.
+ *
+ * MQTT Topics:
+ *   Publish:   Tempdata — Temperature,Humidity as CSV string
+ *   Subscribe: lights   — "ON"/"OFF" to control LED
+ *
+ * Hardware: ESP32 + DHT11 sensor + LED
+ *
+ * Pin Mapping:
+ *   GPIO4  — DHT11 data pin
+ *   GPIO17 — LED output
+ *
+ * Copyright (c) 2026 Roboshop Technologies Sdn Bhd. All rights reserved.
+ */
+
 #include <Adafruit_Sensor.h> //Library for Adafruit sensors , we are using for DHT
 #include <DHT_U.h> //DHT library which uses some func from Adafruit Sensor library
 #include <WiFi.h>

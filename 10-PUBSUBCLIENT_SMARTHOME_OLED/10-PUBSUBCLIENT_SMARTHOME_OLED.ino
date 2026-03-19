@@ -1,3 +1,29 @@
+/**
+ * Version 1.0.0
+ * MakeSense IoT - ESP32 PubSubClient Smart Home with OLED
+ *
+ * Extended smart home node: reads DHT11 temperature and humidity,
+ * displays values on a 0.96" I2C OLED (SSD1306), and publishes
+ * data to an MQTT broker. Subscribes to topics for remote LED,
+ * relay, and buzzer control.
+ *
+ * MQTT Topics:
+ *   Publish:   Tempdata12  — Temperature,Humidity as CSV string
+ *   Subscribe: lights      — "ON"/"OFF" to control LED
+ *   Subscribe: RelayHome1  — "ON"/"OFF" to control relay
+ *
+ * Hardware: ESP32 + DHT11 + SSD1306 OLED + Relay + Buzzer + LED
+ *
+ * Pin Mapping:
+ *   GPIO4  — DHT11 data pin
+ *   GPIO17 — LED output
+ *   GPIO16 — Relay output
+ *   GPIO13 — Buzzer output
+ *   I2C    — SSD1306 OLED at address 0x3C (128x64)
+ *
+ * Copyright (c) 2026 Roboshop Technologies Sdn Bhd. All rights reserved.
+ */
+
 #include <Adafruit_Sensor.h>
 #include <DHT_U.h>
 #include <WiFi.h>

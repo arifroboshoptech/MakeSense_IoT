@@ -1,3 +1,27 @@
+/**
+ * Version 1.0.0
+ * MakeSense IoT - ESP32 Blynk Edgent Gas Monitoring
+ *
+ * Reads an analog gas sensor (MQ-series) and sends the value
+ * to Blynk Cloud via the Edgent framework (OTA, provisioning,
+ * captive portal WiFi configuration).
+ *
+ * Red/green LEDs indicate whether the reading is above or below
+ * a configurable threshold.
+ *
+ * Blynk Virtual Pins:
+ *   V1 — Analog gas sensor value (publish)
+ *
+ * Hardware: ESP32 + MQ-series analog gas sensor + red/green LEDs
+ *
+ * Pin Mapping:
+ *   GPIO32 — Analog gas sensor input
+ *   GPIO23 — Red LED (alert)
+ *   GPIO22 — Green LED (normal)
+ *
+ * Copyright (c) 2026 Roboshop Technologies Sdn Bhd. All rights reserved.
+ */
+
 // Fill-in information from your Blynk Template here
 #define BLYNK_TEMPLATE_ID "TMPL6KIggV9ie"
 #define BLYNK_TEMPLATE_NAME "Gas Monitoring"
